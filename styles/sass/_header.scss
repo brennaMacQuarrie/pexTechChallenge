@@ -1,0 +1,35 @@
+header {
+    background-image: linear-gradient(180deg, rgb(105, 73, 75), black);
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // image and div with all text
+    .title {
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.4rem;
+
+        img {
+            width: 300px;
+        }
+        // div with all text
+        .titleText {
+            align-self: flex-end;
+            margin-left: 20px;
+            p {
+                padding-top: 8px;
+            }
+            h1 {
+                font-family: 'Circular Black', sans-serif;
+                color: white;
+                font-size: 4.5rem;
+                padding: 10px 0;
+            }
+            .fm {
+                color: white;
+            }
+        }
+    }
+}

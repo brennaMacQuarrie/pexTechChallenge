@@ -1,0 +1,95 @@
+main {
+    height: 60vh;
+    padding: 20px 0;
+    overflow: scroll;
+    background-image: linear-gradient(180deg, rgb(70, 49, 50), black);
+    color: rgba(255, 255, 255, 0.767);
+
+    .topRow {
+        width: 15%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        font-size: 2.5rem;
+        font-weight: 100;
+        color: white;
+
+        button {
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            border: none;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            background: #1DB954;
+            color: white;
+            .fas {
+                transform: translateX(2px);
+            }
+        }
+    }
+
+
+    .secondRow,
+    ul li {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 0.3fr 5fr 3fr 2fr;
+        font-size: 1.4rem;
+        letter-spacing: 0.8px;
+    }
+
+
+    .secondRow {
+        border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+        text-transform: uppercase;
+        padding: 10px 0;
+    }
+
+
+    ul li {
+        margin: 10px auto;
+        padding: 5px;
+        width: 100%;
+        align-items: center;
+        border-radius: 3px;
+        // image, title, artist grouped
+        .left {
+            display: flex;
+            img {
+                margin-right: 10px;
+                width: 50px;
+            }
+            .titleArtist {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .songTitle {
+                    color: white;
+                }
+            }
+        }
+
+        .clock {
+            display: flex;
+            width: 200px;
+            .hide {
+                visibility: hidden;
+            }
+        }
+        
+    }
+}
+
+ul li:hover {
+    background: rgba(47, 44, 44, 0.5);
+}
+ul li:active {
+    background: #5E5C5C;
+}
+// songhover: #2A2A2A
+// songclick: #5E5C5C

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <!-- link icons -->
+    <script src="https://kit.fontawesome.com/4fba6b96fc.js" crossorigin="anonymous"></script>
+    
+    <!-- css -->
+    <link rel="stylesheet" href="./styles/styles.css">
+
+
+    <title>BMac Happy Playlist Build</title>
+</head>
+<body>
+
+
+    <header>
+        
+        <div class="title">
+            <img src="./assets/facetime cfp.JPG" alt="album art: Facetime by Cure for Paranoia.">
+            <div class="titleText">
+                <p>PLAYLIST</p>
+                <h1>On a scale of one to happy</h1>
+                <p>A playlist curated by pex with songs to transform your early winter blues</p>
+                <p><span class="fm">bmac.fm</span> &middot; 2,364,723,781 likes &middot; <span class="songCount"></span>songs, <span class="duration"></span>.</p>
+                <!-- TODO populate info here -->
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        
+        <section class="wrapper">
+
+            <div class="topRow">
+                <button><i class="fas fa-play"></i></button>
+                <i class="far fa-heart"></i>
+                <i class="fas fa-ellipsis-h"></i>
+            </div>
+            
+            <div class="secondRow">
+                <p>#</p>
+                <p>title</p>
+                <p>album</p>
+                <i class="far fa-clock"></i>
+            </div>
+            
+
+
+            <!-- use data here -->
+            <ul  id="songList">
+              
+              <template id="songRow">
+                  <li>
+                      <p class="num">1</p>
+                      <div class="left">
+                          <img class="songImg" src="./assets/facetime cfp.JPG" alt="">
+                          <div class="titleArtist">
+                              <p class="songTitle"></p>
+                              <p class="songArtist"></p>
+                          </div>
+                      </div>
+
+                      <p class="album">albumname</p>
+
+                      <div class="clock">
+                        <i class="hide far fa-heart"></i>
+                        <p class="runTime"></p>
+                        <i class="hide fas fa-ellipsis-h"></i>
+                      </div>
+
+                  </li>
+              </template>
+
+            </ul>
+        </section>
+    </main>
+
+    <aside>
+
+    </aside>
+    <script src="script.js"></script>
+</body>
+</html>
