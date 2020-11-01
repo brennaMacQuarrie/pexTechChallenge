@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -302,6 +303,24 @@ nonwhite font : #B4ADAD
 
 fontcredit:
 <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a>
+
+&:visited {
+   background: darken($primary, 10) //10% darker than $primary;
+ }
+
+
+ in this mixin declaration, $sizeValue is the placeholder
+ 🤓
+@mixin fontSize($sizeValue) {
+  font-size: $sizeValue;
+  color: blue;
+  font-weight: bold;
+}
+
+h1 {
+  [[[[ when we use the mixin, we replace the placeholder with the actual value we want ]]]]
+  @include fontSize(36px);
+}
 */
 aside {
   background: black;
@@ -337,7 +356,6 @@ aside .group,
 aside .playlists {
   margin: 30px 0;
   height: 15%;
-  width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -390,6 +408,13 @@ aside .createBoxTwo {
   width: 35px;
   height: 35px;
   background-image: linear-gradient(45deg, #06b906, rgba(255, 221, 72, 0.89));
+}
+
+aside .playlists {
+  height: 20%;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.3);
 }
 
 header {
