@@ -1,18 +1,31 @@
 header {
-    background-image: linear-gradient(180deg, rgb(105, 73, 75), black);
-    height: 40vh;
+    background-image: linear-gradient(180deg, rgb(105, 73, 75), rgb(53, 37, 38));
+    height: 42vh;
+    width: 78vw; 
+
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    padding: 30px 30px 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    nav {
+        height: 40px;
+        width: 80%;
+        border: 1px solid black;
+    }
     // image and div with all text
     .title {
-        width: 70%;
+        width: 100%;
         display: flex;
-        justify-content: space-between;
         font-size: 1.4rem;
-
+        
         img {
             width: 300px;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4), -10px -10px 30px rgba(0, 0, 0, 0.4);
         }
         // div with all text
         .titleText {
@@ -24,8 +37,9 @@ header {
             h1 {
                 font-family: 'Circular Black', sans-serif;
                 color: white;
-                font-size: 4.5rem;
+                font-size: 5rem;
                 padding: 10px 0;
+                line-height: 80%;
             }
             .fm {
                 color: white;

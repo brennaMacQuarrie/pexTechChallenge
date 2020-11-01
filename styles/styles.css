@@ -236,6 +236,11 @@ html {
 }
 
 @font-face {
+  font-family: 'Circular Med';
+  src: local("Circular Bold"), url(../../assets/CircularStd-Black.ttf) format("truetype");
+}
+
+@font-face {
   font-family: 'Circular Black';
   src: local("Circular Black"), url(../../assets/CircularStd-Medium.ttf) format("truetype");
 }
@@ -300,38 +305,132 @@ fontcredit:
 */
 aside {
   background: black;
-  width: 20vw;
   height: 100%;
-}
-
-header {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#69494b), to(black));
-  background-image: linear-gradient(180deg, #69494b, black);
-  height: 40vh;
+  width: 240px;
+  position: fixed;
+  top: 0;
+  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+  text-align: left;
+  padding: 20px 20px;
+  color: rgba(255, 255, 255, 0.767);
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+aside img {
+  width: 80%;
+}
+
+aside h2 {
+  font-size: 1.3rem;
+}
+
+aside .group,
+aside .playlists {
+  margin: 30px 0;
+  height: 15%;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: left;
+}
+
+aside .asideFlex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-header .title {
-  width: 70%;
+aside i {
+  font-size: 2rem;
+}
+
+aside .createBoxOne,
+aside .createBoxTwo,
+aside .group i {
+  margin-right: 15px;
+}
+
+aside .createBoxOne {
+  width: 35px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.767);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: black;
+}
+
+aside .createBoxTwo {
+  width: 35px;
+  height: 35px;
+  background-image: linear-gradient(45deg, #06b906, rgba(255, 221, 72, 0.89));
+}
+
+header {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#69494b), to(#352526));
+  background-image: linear-gradient(180deg, #69494b, #352526);
+  height: 42vh;
+  width: 78vw;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 30px 30px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+header nav {
+  height: 40px;
+  width: 80%;
+  border: 1px solid black;
+}
+
+header .title {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   font-size: 1.4rem;
 }
 
 header .title img {
   width: 300px;
+  -webkit-box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4), -10px -10px 30px rgba(0, 0, 0, 0.4);
+          box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4), -10px -10px 30px rgba(0, 0, 0, 0.4);
 }
 
 header .title .titleText {
@@ -347,8 +446,9 @@ header .title .titleText p {
 header .title .titleText h1 {
   font-family: 'Circular Black', sans-serif;
   color: white;
-  font-size: 4.5rem;
+  font-size: 5rem;
   padding: 10px 0;
+  line-height: 80%;
 }
 
 header .title .titleText .fm {
@@ -356,16 +456,20 @@ header .title .titleText .fm {
 }
 
 main {
-  height: 60vh;
+  height: 58vh;
+  width: 78vw;
   padding: 20px 0;
+  position: fixed;
+  bottom: 0;
+  right: 0;
   overflow: scroll;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#463132), to(black));
-  background-image: linear-gradient(180deg, #463132, black);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#312323), to(black));
+  background-image: linear-gradient(180deg, #312323, black);
   color: rgba(255, 255, 255, 0.767);
 }
 
 main .topRow {
-  width: 15%;
+  width: 18%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
