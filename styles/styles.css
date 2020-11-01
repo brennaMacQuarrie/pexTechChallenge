@@ -344,6 +344,10 @@ aside h2 {
   font-size: 1.3rem;
 }
 
+aside h2:hover, aside h2:active {
+  color: white;
+}
+
 aside .group,
 aside .playlists {
   margin: 30px 0;
@@ -417,7 +421,7 @@ header {
   position: fixed;
   top: 0;
   right: 0;
-  padding: 30px 30px 20px;
+  padding: 20px 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -437,7 +441,48 @@ header {
 header nav {
   height: 40px;
   width: 80%;
-  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header nav .back,
+header nav .forward {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+  background: rgba(58, 40, 40, 0.8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header nav .back i,
+header nav .forward i {
+  color: rgba(255, 255, 255, 0.623);
+  font-size: 3.5rem;
+}
+
+header nav .back i:hover,
+header nav .forward i:hover {
+  color: white;
+}
+
+header nav .back i {
+  -webkit-transform: translateX(-1px);
+          transform: translateX(-1px);
+}
+
+header nav .forward i {
+  -webkit-transform: translateX(1px);
+          transform: translateX(1px);
 }
 
 header .title {
@@ -466,8 +511,9 @@ header .title .titleText p {
 
 header .title .titleText h1 {
   font-family: 'Circular Black', sans-serif;
+  font-weight: 900;
   color: white;
-  font-size: 5rem;
+  font-size: 7rem;
   padding: 10px 0;
   line-height: 80%;
 }
@@ -477,19 +523,19 @@ header .title .titleText .fm {
 }
 
 main {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#271c1c), to(black));
+  background-image: linear-gradient(180deg, #271c1c, black);
   height: 58vh;
   width: calc(100% - 240px);
-  padding: 20px 0;
+  overflow: scroll;
   position: fixed;
   bottom: 0;
   right: 0;
-  overflow: scroll;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#312323), to(black));
-  background-image: linear-gradient(180deg, #312323, black);
   color: rgba(255, 255, 255, 0.767);
 }
 
 main .topRow {
+  padding: 20px 0;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -497,7 +543,6 @@ main .topRow {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 20px 0;
   font-size: 2.3rem;
   color: rgba(255, 255, 255, 0.623);
 }
@@ -549,6 +594,7 @@ main ul li {
 main .secondRow {
   border-bottom: solid 1px rgba(255, 255, 255, 0.3);
   text-transform: uppercase;
+  text-align: left;
   padding: 10px 0;
 }
 
@@ -590,6 +636,10 @@ main ul li .left .titleArtist .songTitle {
   color: white;
 }
 
+main ul li .left .titleArtist .songArtist:hover {
+  text-decoration: underline;
+}
+
 main ul li .clock {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -598,11 +648,12 @@ main ul li .clock {
 }
 
 main ul li .clock i {
-  visibility: hidden;
+  display: none;
 }
 
 main ul li .clock .show {
-  visibility: visible;
+  position: absolute;
+  display: inline-block;
 }
 
 main ul li:hover {
