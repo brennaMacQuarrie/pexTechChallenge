@@ -3,19 +3,14 @@ aside {
     height: 100%; 
     width: 240px; 
     position: fixed; 
-    top: 0; 
-    left: 0;
 
     display: flex;
     flex-direction: column;
-    // overflow-x: hidden; 
     margin: 0 auto;
-    text-align: left;
-
     padding: 20px 20px;
-    color: $offWhite;
-    font-size: 1.3rem;
-    letter-spacing: 1px;
+
+    @include color($offWhite);
+
     // logo
     img {
         width: 80%;

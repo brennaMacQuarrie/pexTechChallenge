@@ -1,7 +1,19 @@
 // NAMESPACE
 const happy = {};
 
-happy.url = 'https://bit.ly/3mOKGpu',
+// happy.url = 'https://bit.ly/3mOKGpu';
+
+
+// TODO make function to get heart and ellipsis to appear on song hover
+happy.show = () => {
+    songRow.onmouseover = function (event) {
+        // highlight the mouseenter target
+        event.target.classList.add('show');
+    };
+    songRow.onmouseout = function(event) {
+        event.target.classList.remove('show');
+    }
+}
 
 // takes in data // returns individual song row
 happy.buildSong = (songData) => {
@@ -24,8 +36,6 @@ happy.buildSong = (songData) => {
         return songRow;
 
 }
-
-// TODO make function to get heart and ellipsis to appear on song hover
 
 happy.populateList = () => {
     //get data from bitly json info
@@ -81,6 +91,7 @@ happy.domReady = (fn) => {
 //INIT FUNCTION
 happy.init = () => {
     happy.domReady();
+    happy.show();
 };
 
 //DOCUMENT READY FUNCTION

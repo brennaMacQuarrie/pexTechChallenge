@@ -236,29 +236,11 @@ html {
   overflow: hidden;
 }
 
-@font-face {
-  font-family: 'Circular Med';
-  src: local("Circular Bold"), url(../../assets/CircularStd-Black.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: 'Circular Black';
-  src: local("Circular Black"), url(../../assets/CircularStd-Medium.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: 'Circular Med';
-  src: local("Circular Med"), url(../../assets/CircularStd-Book.ttf) format("truetype");
-}
-
 html {
   font-size: 62.5%;
 }
 
 body {
-  font-size: 1.6rem;
-  font-family: 'Circular Med', sans-serif;
-  color: rgba(255, 255, 255, 0.767);
   height: 100vh;
 }
 
@@ -301,9 +283,6 @@ darkBrown: black;
 grey: #282828
 nonwhite font : #B4ADAD
 
-fontcredit:
-<a href="http://www.onlinewebfonts.com">oNline Web Fonts</a>
-
 &:visited {
    background: darken($primary, 10) //10% darker than $primary;
  }
@@ -322,13 +301,26 @@ h1 {
   @include fontSize(36px);
 }
 */
+@font-face {
+  font-family: 'Circular Book';
+  src: local("Circular Book"), url(../../assets/CircularStd-Book.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Circular Med';
+  src: local("Circular Med"), url(../../assets/CircularStd-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'Circular Black';
+  src: local("Circular Black"), url(../../assets/CircularStd-Black.ttf) format("truetype");
+}
+
 aside {
   background: black;
   height: 100%;
   width: 240px;
   position: fixed;
-  top: 0;
-  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -337,11 +329,11 @@ aside {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 0 auto;
-  text-align: left;
   padding: 20px 20px;
-  color: rgba(255, 255, 255, 0.767);
   font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.623);
   letter-spacing: 1px;
+  font-family: 'Circular Book';
 }
 
 aside img {
@@ -391,7 +383,7 @@ aside .group i {
 aside .createBoxOne {
   width: 35px;
   height: 35px;
-  background: rgba(255, 255, 255, 0.767);
+  background: rgba(255, 255, 255, 0.623);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -436,6 +428,10 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.623);
+  letter-spacing: 1px;
+  font-family: 'Circular Book';
 }
 
 header nav {
@@ -450,7 +446,6 @@ header .title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 1.4rem;
 }
 
 header .title img {
@@ -495,26 +490,26 @@ main {
 }
 
 main .topRow {
-  width: 18%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   padding: 20px 0;
-  font-size: 2.5rem;
-  font-weight: 100;
-  color: white;
+  font-size: 2.3rem;
+  color: rgba(255, 255, 255, 0.623);
+}
+
+main .topRow .far {
+  padding: 0 30px;
 }
 
 main .topRow button {
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 55px;
+  width: 55px;
   border: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -534,6 +529,10 @@ main .topRow button .fas {
           transform: translateX(2px);
 }
 
+main .topRow:hover {
+  color: white;
+}
+
 main .secondRow,
 main ul li {
   width: 100%;
@@ -541,8 +540,10 @@ main ul li {
   display: grid;
   -ms-grid-columns: 0.3fr 5fr 3fr 2fr;
       grid-template-columns: 0.3fr 5fr 3fr 2fr;
-  font-size: 1.4rem;
-  letter-spacing: 0.8px;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.623);
+  letter-spacing: 1px;
+  font-family: 'Circular Book';
 }
 
 main .secondRow {
@@ -596,14 +597,18 @@ main ul li .clock {
   width: 200px;
 }
 
-main ul li .clock .hide {
+main ul li .clock i {
   visibility: hidden;
 }
 
-ul li:hover {
+main ul li .clock .show {
+  visibility: visible;
+}
+
+main ul li:hover {
   background: rgba(47, 44, 44, 0.5);
 }
 
-ul li:active {
+main ul li:active {
   background: #5E5C5C;
 }

@@ -1,0 +1,25 @@
+$offWhite: rgba(255, 255, 255, 0.623);
+
+@font-face {
+  font-family: 'Circular Book';
+  src: local('Circular Book'), url(../../assets/CircularStd-Book.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Circular Med';
+    src: local('Circular Med'), url(../../assets/CircularStd-Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Circular Black';
+  src: local('Circular Black'), url(../../assets/CircularStd-Black.ttf) format('truetype');
+}
+
+@mixin color($offWhite) {
+  font-size: 1.3rem;
+  color: $offWhite;
+  letter-spacing: 1px;
+  font-family: 'Circular Book';
+}
+
+

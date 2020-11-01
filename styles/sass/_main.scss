@@ -11,19 +11,19 @@ main {
     color: rgba(255, 255, 255, 0.767);
 
     .topRow {
-        width: 18%;
+        width: 100%;
         display: flex;
-        justify-content: space-between;
         align-items: center;
         padding: 20px 0;
-        font-size: 2.5rem;
-        font-weight: 100;
-        color: white;
-
+        font-size: 2.3rem;
+        color: $offWhite;
+        .far {
+            padding: 0 30px;
+        }
         button {
             border-radius: 50%;
-            height: 50px;
-            width: 50px;
+            height: 55px;
+            width: 55px;
             border: none;
 
             display: flex;
@@ -36,6 +36,9 @@ main {
                 transform: translateX(2px);
             }
         }
+        &:hover {
+            color: white;
+        }
     }
 
 
@@ -44,8 +47,7 @@ main {
         width: 100%;
         display: grid;
         grid-template-columns: 0.3fr 5fr 3fr 2fr;
-        font-size: 1.4rem;
-        letter-spacing: 0.8px;
+        @include color($offWhite);
     }
 
 
@@ -82,19 +84,18 @@ main {
         .clock {
             display: flex;
             width: 200px;
-            .hide {
+            i {
                 visibility: hidden;
             }
+            .show {
+                visibility: visible;
+            }
         }
-        
+        &:hover {
+            background: rgba(47, 44, 44, 0.5);
+        }
+        &:active {
+            background: #5E5C5C;
+        }
     }
 }
-
-ul li:hover {
-    background: rgba(47, 44, 44, 0.5);
-}
-ul li:active {
-    background: #5E5C5C;
-}
-// songhover: #2A2A2A
-// songclick: #5E5C5C
