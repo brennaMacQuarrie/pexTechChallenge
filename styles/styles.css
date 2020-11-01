@@ -329,7 +329,7 @@ aside {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 0 auto;
-  padding: 20px 20px;
+  padding: 20px 30px;
   font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.623);
   letter-spacing: 1px;

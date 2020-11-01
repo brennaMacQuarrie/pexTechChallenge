@@ -6,12 +6,14 @@ const happy = {};
 
 // TODO make function to get heart and ellipsis to appear on song hover
 happy.show = () => {
+    let showMe = document.getElementById('showMe');
+    let songRow = document.getElementById('songRow');
     songRow.onmouseover = function (event) {
         // highlight the mouseenter target
-        event.target.classList.add('show');
+        showMe.classList.add('show');
     };
     songRow.onmouseout = function(event) {
-        event.target.classList.remove('show');
+        showMe.classList.remove('show');
     }
 }
 
