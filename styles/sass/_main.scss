@@ -1,6 +1,7 @@
 main {
     height: 58vh;
-    width: 78vw; 
+    width: calc(100% - 240px);
+
     padding: 20px 0;
     position: fixed;
     bottom: 0;

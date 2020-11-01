@@ -11,8 +11,6 @@ happy.buildSong = (songData) => {
         // TODO: DISPLAY as TIME with : not .
         let minTime = runTime / Math.pow(10, 1);
         
-        // let imgSource = songData.
-        // TODO get song images and album titles
 
         const template = document.getElementById('songRow');
         
@@ -27,7 +25,7 @@ happy.buildSong = (songData) => {
 
 }
 
-// TODO make heart and ellipsis appear on song hover
+// TODO make function to get heart and ellipsis to appear on song hover
 
 happy.populateList = () => {
     //get data from bitly json info
