@@ -66,7 +66,6 @@
                 <h1>Happy Songs</h1>
                 <p>A playlist curated by pex with songs to transform your early winter blues</p>
                 <p><span class="fm">pex.fm</span> &middot; 2,364,723,781 likes &middot; <span id="songCount"></span> songs, <span id="duration"></span>.</p>
-                <!-- TODO populate info here -->
             </div>
         </div>
     </header>
@@ -88,6 +87,7 @@
                 <p class="num">#</p>
                 <p class="left">title</p>
                 <p class="album">album</p>
+                <p class="date">date added</p>
                 <i class="clock far fa-clock"></i>
             </div>
             
@@ -96,7 +96,7 @@
               
               <template id="songRow">
                   <li>
-                      <p class="num">1</p>
+                      <p id="num" class="num">1</p>
                       <div class="left">
                           <img class="songImg" src="./assets/facetime cfp.JPG" alt="">
                           <div class="titleArtist">
@@ -104,9 +104,9 @@
                               <p class="songArtist"></p>
                           </div>
                       </div>
-                      <!-- TODO get album name and album image -->
+                      <!-- TODO get album name and album image and date added -->
                       <p class="album">albumname</p>
-
+                      <p class="date">date</p>
                       <div class="clock">
                         <i class="hide far fa-heart"></i>
                         <p class="runTime"></p>

@@ -50,83 +50,84 @@ main {
     ul li {
         width: 100%;
         display: grid;
-        grid-template-columns: 0.3fr 5fr 3fr 2fr;
+        grid-template-columns: 0.3fr 5fr 3fr 2fr 1fr;
         @include color($offWhite);
     }
 
-    // THIS ISNT ALIGNING WHYYYYY
     .secondRow {
         border-bottom: solid 1px rgba(255, 255, 255, 0.3);
         text-transform: uppercase;
-        text-align: left;
         padding: 10px 0;
     }
 
 
-    ul li {
-        margin: 10px auto;
-        padding: 5px;
-        width: 100%;
-        align-items: center;
-        border-radius: 3px;
-        // image, title, artist grouped
-       
-        .left {
-            display: flex;
-            img {
-                margin-right: 10px;
-                width: 50px;
+    ul {
+        li {
+            padding: 5px;
+            width: 100%;
+            align-items: center;
+            border-radius: 3px;
+
+            // image, title, artist grouped
+            .left {
+                display: grid;
+                grid-template-columns: 1fr 5fr;
+                overflow-x: hidden;
+                // TODO make font hide under next grid
+                img {
+                    margin-right: 10px;
+                    width: 50px;
+                }
+                .titleArtist {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    .songTitle {
+                        color: white;
+                    }
+                    .songArtist:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
-            .titleArtist {
+
+            .clock {
                 display: flex;
-                flex-direction: column;
-                justify-content: center;
-                .songTitle {
-                    color: white;
+                position: relative;
+                
+                i {
+                    display: none;
+                    position: absolute;
                 }
-                .songArtist:hover {
-                    text-decoration: underline;
+                .fa-heart {
+                    left: -20px;
+                }
+                .fa-ellipsis-h {
+                    left: 35px;
                 }
             }
-        }
-
-        .clock {
-            display: flex;
-            position: relative;
-            
-            i {
-                display: none;
-                position: absolute;
+            // on song hover
+            &:hover {
+                background: rgba(47, 44, 44, 0.5);
+                i {
+                    display: inline-block;
+                }
             }
-            .fa-heart {
-                left: -20px;
+            // on song click
+            &:active {
+                background: #5E5C5C;
             }
-            .fa-ellipsis-h {
-                left: 35px;
-            }
-        }
-
-        // on song hover
-        &:hover {
-            background: rgba(47, 44, 44, 0.5);
-            i {
-                display: inline-block;
-            }
-        }
-        // on song click
-        &:active {
-            background: #5E5C5C;
         }
     }
 }
+        
 
 
 .num {
     min-width: 10px;
 }
 .left {
-    min-width: 200px;
-    overflow: scroll;
+    min-width: 250px;
 }
 .clock {
     min-width: 50px;

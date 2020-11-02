@@ -18,12 +18,15 @@ aside {
 
     h2 {
         font-size: 1.3rem;
+        // TODO on hover make i tag white??
         &:hover,
-        &:active {
+        &:active,
+        &:hover ~ i.fas,
+        &:active ~ i.fas {
             color: white;
         }
-        // TODO on hover make i tag white
     }
+
     .group, 
     .playlists {
         margin: 30px 0;

@@ -1,0 +1,56 @@
+// 1280
+
+/* Portrait tablet and small desktops */
+@media (max-width: 1280px) {
+    header {
+        .title {
+            img {
+                width: 200px;
+                height: 200px;
+                align-self: flex-end;
+            }
+
+        }
+    }
+
+}
+// 1025 disappear forward arrow, margin between around songlist
+/* Landscape phone to portrait tablet */
+@media (max-width: 1000px) {
+    // date hidden
+    main {
+        .secondRow,
+        ul li {
+            grid-template-columns: 0.5fr 6fr 3fr 0.3fr;
+            .date {
+                display: none;
+            }
+        }
+    }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    header {
+        // background-image: url(../../assets/facetime\ cfp.JPG);
+        // TODO background here make work
+        .title {
+            position: relative;
+            img {
+                display: none;
+            }
+            .titleText {
+                position: absolute;
+                width: 80%;
+            }
+        }
+    }
+
+    header,
+    main {
+        width: 100%;
+    }
+    aside {
+        display: none;
+    }
+}

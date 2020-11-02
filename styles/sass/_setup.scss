@@ -42,36 +42,3 @@ a {
 }
 
 
-
-/* colors
-songhover: #2A2A2A
-songclick: #5E5C5C
-
-
-playgreen: #1DB954
-
-lightBrown: #69494B
-darkBrown: black;
-
-grey: #282828
-nonwhite font : #B4ADAD
-
-&:visited {
-   background: darken($primary, 10) //10% darker than $primary;
- }
-
-
- in this mixin declaration, $sizeValue is the placeholder
- 🤓
-@mixin fontSize($sizeValue) {
-  font-size: $sizeValue;
-  color: blue;
-  font-weight: bold;
-}
-
-h1 {
-  [[[[ when we use the mixin, we replace the placeholder with the actual value we want ]]]]
-  @include fontSize(36px);
-}
-*/
-

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -270,37 +269,6 @@ a {
   text-decoration: none;
 }
 
-/* colors
-songhover: #2A2A2A
-songclick: #5E5C5C
-
-
-playgreen: #1DB954
-
-lightBrown: #69494B
-darkBrown: black;
-
-grey: #282828
-nonwhite font : #B4ADAD
-
-&:visited {
-   background: darken($primary, 10) //10% darker than $primary;
- }
-
-
- in this mixin declaration, $sizeValue is the placeholder
- 🤓
-@mixin fontSize($sizeValue) {
-  font-size: $sizeValue;
-  color: blue;
-  font-weight: bold;
-}
-
-h1 {
-  [[[[ when we use the mixin, we replace the placeholder with the actual value we want ]]]]
-  @include fontSize(36px);
-}
-*/
 @font-face {
   font-family: 'Circular Book';
   src: local("Circular Book"), url(../../assets/CircularStd-Book.ttf) format("truetype");
@@ -313,7 +281,7 @@ h1 {
 
 @font-face {
   font-family: 'Circular Black';
-  src: local("Circular Black"), url(../../assets/CircularStd-Black.ttf) format("truetype");
+  src: local("Circular Black"), url(../../assets/Circular_Bold.ttf) format("truetype");
 }
 
 aside {
@@ -344,7 +312,9 @@ aside h2 {
   font-size: 1.3rem;
 }
 
-aside h2:hover, aside h2:active {
+aside h2:hover, aside h2:active,
+aside h2:hover ~ i.fas,
+aside h2:active ~ i.fas {
   color: white;
 }
 
@@ -486,8 +456,6 @@ header nav .forward i {
 }
 
 header .title {
-  width: 100%;
-  height: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -511,11 +479,10 @@ header .title .titleText p {
 
 header .title .titleText h1 {
   font-family: 'Circular Black', sans-serif;
-  font-weight: 900;
+  font-size: clamp(4rem, 5.5rem, 7rem);
   color: white;
-  font-size: 7rem;
-  padding: 10px 0;
   line-height: 80%;
+  padding: 10px 0;
 }
 
 header .title .titleText .fm {
@@ -583,8 +550,8 @@ main ul li {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 0.3fr 5fr 3fr 2fr;
-      grid-template-columns: 0.3fr 5fr 3fr 2fr;
+  -ms-grid-columns: 0.3fr 5fr 3fr 2fr 1fr;
+      grid-template-columns: 0.3fr 5fr 3fr 2fr 1fr;
   font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.623);
   letter-spacing: 1px;
@@ -594,12 +561,10 @@ main ul li {
 main .secondRow {
   border-bottom: solid 1px rgba(255, 255, 255, 0.3);
   text-transform: uppercase;
-  text-align: left;
   padding: 10px 0;
 }
 
 main ul li {
-  margin: 10px auto;
   padding: 5px;
   width: 100%;
   -webkit-box-align: center;
@@ -609,9 +574,11 @@ main ul li {
 }
 
 main ul li .left {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 5fr;
+      grid-template-columns: 1fr 5fr;
+  overflow-x: hidden;
 }
 
 main ul li .left img {
@@ -677,10 +644,53 @@ main ul li:active {
 }
 
 .left {
-  min-width: 200px;
-  overflow: scroll;
+  min-width: 250px;
 }
 
 .clock {
   min-width: 50px;
+}
+
+/* Portrait tablet and small desktops */
+@media (max-width: 1280px) {
+  header .title img {
+    width: 200px;
+    height: 200px;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 1000px) {
+  main .secondRow,
+  main ul li {
+    -ms-grid-columns: 0.5fr 6fr 3fr 0.3fr;
+        grid-template-columns: 0.5fr 6fr 3fr 0.3fr;
+  }
+  main .secondRow .date,
+  main ul li .date {
+    display: none;
+  }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  header .title {
+    position: relative;
+  }
+  header .title img {
+    display: none;
+  }
+  header .title .titleText {
+    position: absolute;
+    width: 80%;
+  }
+  header,
+  main {
+    width: 100%;
+  }
+  aside {
+    display: none;
+  }
 }

@@ -41,17 +41,19 @@ header {
             transform: translateX(1px);
         }
     }
-    // image and div with all text
+
+
+    
+    // image and text div
+    // TODO responsive????
     .title {
-        width: 100%;
-        height: 80%;
         display: flex;
-        // TODO image static size with one mediaquery
         img {
             max-width: 250px;
             box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4), -10px -10px 30px rgba(0, 0, 0, 0.4);
         }
-        // div with all text
+
+        // text div
         .titleText {
             align-self: flex-end;
             margin-left: 20px;
@@ -60,11 +62,10 @@ header {
             }
             h1 {
                 font-family: 'Circular Black', sans-serif;
-                font-weight: 900;
+                font-size: clamp(4rem, 5.5rem, 7rem);
                 color: white;
-                font-size: 7rem;
-                padding: 10px 0;
                 line-height: 80%;
+                padding: 10px 0;
             }
             .fm {
                 color: white;
