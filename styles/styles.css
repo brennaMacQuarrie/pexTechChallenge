@@ -644,22 +644,43 @@ main ul li .clock {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 200px;
+  position: relative;
 }
 
 main ul li .clock i {
   display: none;
+  position: absolute;
 }
 
-main ul li .clock .show {
-  position: absolute;
-  display: inline-block;
+main ul li .clock .fa-heart {
+  left: -20px;
+}
+
+main ul li .clock .fa-ellipsis-h {
+  left: 35px;
 }
 
 main ul li:hover {
   background: rgba(47, 44, 44, 0.5);
 }
 
+main ul li:hover i {
+  display: inline-block;
+}
+
 main ul li:active {
   background: #5E5C5C;
+}
+
+.num {
+  min-width: 10px;
+}
+
+.left {
+  min-width: 200px;
+  overflow: scroll;
+}
+
+.clock {
+  min-width: 50px;
 }

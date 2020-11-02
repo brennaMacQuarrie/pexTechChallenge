@@ -11,6 +11,7 @@ main {
 
     color: rgba(255, 255, 255, 0.767);
 
+    // PLAY BUTTON ROW
     .topRow {
         padding: 20px 0;
         width: 100%;
@@ -19,7 +20,6 @@ main {
 
         font-size: 2.3rem;
         color: $offWhite;
-        // text-align: left;
 
         .far {
             padding: 0 30px;
@@ -45,7 +45,7 @@ main {
         }
     }
 
-
+    // LAYOUT ALIGNMENT
     .secondRow,
     ul li {
         width: 100%;
@@ -54,7 +54,7 @@ main {
         @include color($offWhite);
     }
 
-
+    // THIS ISNT ALIGNING WHYYYYY
     .secondRow {
         border-bottom: solid 1px rgba(255, 255, 255, 0.3);
         text-transform: uppercase;
@@ -70,6 +70,7 @@ main {
         align-items: center;
         border-radius: 3px;
         // image, title, artist grouped
+       
         .left {
             display: flex;
             img {
@@ -91,20 +92,42 @@ main {
 
         .clock {
             display: flex;
-            width: 200px;
+            position: relative;
+            
             i {
                 display: none;
-            }
-            .show {
                 position: absolute;
+            }
+            .fa-heart {
+                left: -20px;
+            }
+            .fa-ellipsis-h {
+                left: 35px;
+            }
+        }
+
+        // on song hover
+        &:hover {
+            background: rgba(47, 44, 44, 0.5);
+            i {
                 display: inline-block;
             }
         }
-        &:hover {
-            background: rgba(47, 44, 44, 0.5);
-        }
+        // on song click
         &:active {
             background: #5E5C5C;
         }
     }
+}
+
+
+.num {
+    min-width: 10px;
+}
+.left {
+    min-width: 200px;
+    overflow: scroll;
+}
+.clock {
+    min-width: 50px;
 }

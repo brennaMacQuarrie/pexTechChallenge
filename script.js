@@ -1,23 +1,21 @@
 // NAMESPACE
 const happy = {};
 
-// TODO MAKE DISPLAY DYNAMIC IN REGARDS TO WHAT SONGS ARE HAPPIEST??
 
 happy.url = 'https://spreadsheets.google.com/feeds/list/1H5S6Vc-gCOCKLvQmfjfJmG2THtDb5Z_LQGaZJpWZQ4c/1/public/values?alt=json';
 
+// happy.msToHr = (ms) => {
+    
+//     ms = 1000 * Math.round(ms / 1000); // round to nearest second
+//     let date = new Date(ms);
 
-// TODO make function to get heart and ellipsis to appear on song hover
-happy.show = () => {
-    let showMe = document.getElementById('showMe');
-    let songRow = document.getElementById('songRow');
-    songRow.onmouseover = function (event) {
-        // highlight the mouseenter target
-        showMe.classList.add('show');
-    };
-    songRow.onmouseout = function(event) {
-        showMe.classList.remove('show');
-    }
-}
+//     date = date.toTimeString(); // convert to 'yr day hr:mn:sc'
+
+//     date = d.split(' ')[0]; // convert to hr:mn:sc
+
+//     return date;
+
+// }
 
 
 // takes in data // returns individual song row
@@ -25,14 +23,19 @@ happy.buildSong = (songData) => {
         let songTitle = songData.gsx$songtitle.$t;
         let songArtist = songData.gsx$artist.$t;
 
-        // TODO seconds to ms build external func?
-        var ms = songData.gsx$durationms.$t;
+        let ms = songData.gsx$durationms.$t;
+        // use ms convert fn
+        // happy.msToHr(ms);
         ms = 1000 * Math.round(ms / 1000); // round to nearest second
         var d = new Date(ms);
         d = d.toTimeString();
         d = d.split(' ')[0]; // access hr:mn:sc
+
+        
+
         let mins = parseInt(d.split(':')[1]); // remove 0
         let secs = d.split(':')[2]; // remove hr
+
         let minTime = mins + ':' + secs; // concat result
         
 
@@ -49,6 +52,28 @@ happy.buildSong = (songData) => {
 
 }
 
+// use full "entry" array to populate page header
+happy.populateHeader = (items) => {
+    // where ITEMS is the array of song objs
+    let totalSongs = items.length;
+
+    let songDurationArray = items.map((song) => {
+        return song.gsx$durationms.$t;
+    });
+    console.log(songDurationArray);
+
+    // build reduce fn
+    const reducer = (a, b) => {
+        return a + b;
+    };
+
+    // let durationInMs = songDurationArray.reduce(reducer);
+        
+    document.getElementById('duration').textContent = songDurationArray.reduce(reducer);
+
+    document.getElementById('songCount').textContent = totalSongs;
+}
+
 
 happy.populateList = () => {
     //get data from bitly json info
@@ -63,10 +88,10 @@ happy.populateList = () => {
                 }
                 // accessing data
                 response.json().then(function (data) {
-                    console.log(data);
                     const items = data.feed.entry;
+                    console.log(items);
 
-                    // TODO The contents of the playlist should be 100 songs listed from “happiest” to “least happy”.
+                    // TODO sort me
                     let songs = [];
 
                     items.forEach((songData) => {
@@ -76,17 +101,22 @@ happy.populateList = () => {
                         songs.push(songRow);
                         // build them into the songList one by one
                         document.getElementById('songList').append(songRow);
-                        
-                    });
-                });
-            })
+                    }); // end foreach
+
+                    happy.populateHeader(items);
+                }); // end response 'then'
+            }) // end fetch 'then'
+
             // if shit don't work
             .catch(function (err) {
-                alert('data error:', err);
+                alert('data error', err);
             });
     }
     apiCall();
 }
+
+
+
 
 
 happy.domReady = (fn) => {
@@ -107,7 +137,6 @@ happy.domReady = (fn) => {
 //INIT FUNCTION
 happy.init = () => {
     happy.domReady();
-    happy.show();
 };
 
 //DOCUMENT READY FUNCTION

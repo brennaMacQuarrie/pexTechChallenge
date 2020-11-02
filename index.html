@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./styles/styles.css">
 
 
-    <title>BMac Happy Playlist Build</title>
+    <title>Brenna MacQuarrie ☺️ 🎧</title>
 </head>
 <body>
 
@@ -65,13 +65,13 @@
                 <p>PLAYLIST</p>
                 <h1>Happy Songs</h1>
                 <p>A playlist curated by pex with songs to transform your early winter blues</p>
-                <p><span class="fm">bmac.fm</span> &middot; 2,364,723,781 likes &middot; <span class="songCount"></span>songs, <span class="duration"></span>.</p>
+                <p><span class="fm">pex.fm</span> &middot; 2,364,723,781 likes &middot; <span id="songCount"></span> songs, <span id="duration"></span>.</p>
                 <!-- TODO populate info here -->
             </div>
         </div>
     </header>
 
-
+<!--  -->
 <!-- SONGLIST -->
     <main>
         
@@ -82,17 +82,16 @@
                 <i class="far fa-heart"></i>
                 <i class="fas fa-ellipsis-h"></i>
             </div>
+
             
             <div class="secondRow">
-                <p>#</p>
-                <p>title</p>
-                <p>album</p>
-                <i class="far fa-clock"></i>
+                <p class="num">#</p>
+                <p class="left">title</p>
+                <p class="album">album</p>
+                <i class="clock far fa-clock"></i>
             </div>
             
-
-
-            <!-- use data here -->
+<!-- SONG TEMPLATE -->
             <ul  id="songList">
               
               <template id="songRow">
@@ -109,9 +108,9 @@
                       <p class="album">albumname</p>
 
                       <div class="clock">
-                        <i id="showMe" class="hide far fa-heart"></i>
+                        <i class="hide far fa-heart"></i>
                         <p class="runTime"></p>
-                        <i id="showMe" class="hide fas fa-ellipsis-h"></i>
+                        <i class="hide fas fa-ellipsis-h"></i>
                       </div>
 
                   </li>
