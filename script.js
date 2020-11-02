@@ -110,9 +110,11 @@ happy.populateList = () => {
 
                     items.sort(happy.sortFunction);
                     
-                    items.forEach((songData) => {
+                    items.forEach((songData, index) => {
                         let songRow = happy.buildSong(songData);
                         document.getElementById('songList').append(songRow);
+                        
+                        // document.getElementById(`num+${index}`).append(index);
                     }); 
                     happy.populateHeader(items);
                 }); 

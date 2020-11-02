@@ -571,6 +571,13 @@ main ul li {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 3px;
+  position: relative;
+  counter-increment: my-counter;
+}
+
+main ul li::before {
+  content: counter(my-counter);
+  position: absolute;
 }
 
 main ul li .left {

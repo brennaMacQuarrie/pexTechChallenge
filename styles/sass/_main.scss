@@ -67,7 +67,12 @@ main {
             width: 100%;
             align-items: center;
             border-radius: 3px;
-
+            position: relative;
+            counter-increment: my-counter;
+            &::before {
+                content: counter(my-counter);
+                position: absolute;
+            }
             // image, title, artist grouped
             .left {
                 display: grid;
