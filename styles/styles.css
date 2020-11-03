@@ -540,8 +540,8 @@ header .title .titleText .fm {
 }
 
 main {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#271c1c), to(black));
-  background-image: linear-gradient(180deg, #271c1c, black);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#271c1c), to(#111111));
+  background-image: linear-gradient(180deg, #271c1c, #111111);
   height: 58vh;
   width: calc(100% - 240px);
   padding: 20px;
