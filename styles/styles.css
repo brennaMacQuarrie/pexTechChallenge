@@ -271,7 +271,7 @@ a {
 
 @font-face {
   font-family: 'Circular Book';
-  src: local("Circular Book"), url(../../assets/CircularStd-Book.ttf) format("truetype");
+  src: local("Circular Book"), url(../assets/CircularStd-Book.ttf) format("truetype");
 }
 
 @font-face {
