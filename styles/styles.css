@@ -601,6 +601,7 @@ main ol li {
   display: grid;
   -ms-grid-columns: 0.3fr 4.5fr 3fr 2fr 1fr;
       grid-template-columns: 0.3fr 4.5fr 3fr 2fr 1fr;
+  text-align: left;
   font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.623);
   letter-spacing: 1px;
@@ -638,7 +639,7 @@ main ol li .left {
   -ms-grid-columns: 1fr 5fr;
       grid-template-columns: 1fr 5fr;
   height: 50px;
-  overflow: hidden;
+  padding-right: 10px;
 }
 
 main ol li .left img {
@@ -662,11 +663,23 @@ main ol li .left .titleArtist {
 main ol li .left .titleArtist .songTitle {
   color: white;
   font-size: 1.5rem;
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 main ol li .left .titleArtist .songArtist:hover,
 main ol li .left .titleArtist .songArtist:active {
   text-decoration: underline;
+}
+
+main ol li .album {
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 10px;
 }
 
 main ol li .clock {
@@ -702,14 +715,6 @@ main ol li:active {
 
 main ol li:active i {
   display: inline-block;
-}
-
-.left {
-  min-width: 250px;
-}
-
-.clock {
-  min-width: 50px;
 }
 
 /* Portrait tablet and small desktops */

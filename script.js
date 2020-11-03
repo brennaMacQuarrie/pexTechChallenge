@@ -3,6 +3,12 @@ const happy = {};
 
 happy.url = 'https://spreadsheets.google.com/feeds/list/1H5S6Vc-gCOCKLvQmfjfJmG2THtDb5Z_LQGaZJpWZQ4c/1/public/values?alt=json';
 
+// happy.urlYe = 'https://api.kanye.rest';
+
+happy.urlFm = 'http://ws.audioscrobbler.com/2.0/?';
+
+
+
 
 happy.msToHr = function (ms) {
     ms = 1000 * Math.round(ms / 1000); // round to nearest second
@@ -18,23 +24,54 @@ happy.msToHr = function (ms) {
 
 // returns individual song row
 happy.buildSong = function (songData) {
+
     let songTitle = songData.gsx$songtitle.$t;
     let songArtist = songData.gsx$artist.$t;
-
+    
     let dateAdded = songData.updated.$t; // nopes
     let dateDisplay = dateAdded.split('T')[0]; // nope
-
+    
     let ms = songData.gsx$durationms.$t;
     let hours = happy.msToHr(ms);
     let mins = parseInt(hours.split(':')[1]); 
     let secs = hours.split(':')[2]; 
     let minTime = mins + ':' + secs;     
-
+    
     // send into display
     const template = document.getElementById('songRow');
     let blankLi = template.content.querySelector("li"); // li to be replicated
     let songRow = document.importNode(blankLi, true); 
-    
+
+    const defaultArtSrc = './assets/facetime.JPG';
+
+    fetch(happy.urlFm + new URLSearchParams({ 
+        artist: songArtist, 
+        track: songTitle,
+        api_key: '336b30502e006ae458bb4b22b9645319',
+        format: 'json',
+        method: 'track.getInfo',
+    })).then((res) => {
+        res.json().then((body) => {
+            let albumTitle = body.track?.album?.title;
+            let artwork = body.track?.album?.image[0];
+
+            // dealing with undefined from alt data
+            if (artwork) {
+                songRow.querySelector('.songImg').src = artwork['#text']; 
+            } else {
+                artwork = defaultArtSrc;
+            }
+
+            // dealing with undefined from alt data
+            if (body.track?.album?.title) {
+                songRow.querySelector('.album').textContent = albumTitle;
+            } else {
+                songRow.querySelector('.album').textContent = '';
+            }
+            
+        });
+    });
+
     songRow.querySelector('.songTitle').textContent = songTitle;
     songRow.querySelector('.songArtist').textContent = songArtist;
     songRow.querySelector('.runTime').textContent = minTime;
@@ -121,22 +158,25 @@ happy.populateList = function () {
     apiCall();
 }
 
+// TODO build modal function
+// function myFunction() {
+//     var element = document.getElementById("myDIV");
+//     element.classList.add("mystyle");
+// } 
 
 
 // make for go
-
 happy.domReady = (fn) => {
     // If we're early to the party
     document.addEventListener('DOMContentLoaded', fn);
     // If late, aka on time
-    if (
-        document.readyState === 'interactive' ||
-        document.readyState === 'complete'
-    ) {
+    if ( document.readyState === 'interactive' ||
+        document.readyState === 'complete') {
         // ok, nowwwwww we can do shit.
         happy.populateList();
-    }
-}
+        // TODO hideModal()
+    } 
+};
 
 // iss ready init?
 happy.init = () => {
