@@ -281,7 +281,7 @@ a {
 
 @font-face {
   font-family: 'Circular Black';
-  src: local("Circular Black"), url(assets/Circular_Bold.ttf) format("truetype");
+  src: local("Circular Black"), url(assets/CircularStd-Black.ttf) format("truetype");
 }
 
 aside {
