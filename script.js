@@ -4,7 +4,7 @@ const happy = {};
 happy.url = 'https://spreadsheets.google.com/feeds/list/1H5S6Vc-gCOCKLvQmfjfJmG2THtDb5Z_LQGaZJpWZQ4c/1/public/values?alt=json';
 
 
-happy.msToHr = (ms) => {
+happy.msToHr = function (ms) {
     ms = 1000 * Math.round(ms / 1000); // round to nearest second
     let date = new Date(ms);
 
@@ -17,11 +17,11 @@ happy.msToHr = (ms) => {
 
 
 // returns individual song row
-happy.buildSong = (songData) => {
+happy.buildSong = function (songData) {
     let songTitle = songData.gsx$songtitle.$t;
     let songArtist = songData.gsx$artist.$t;
 
-    let dateAdded = songData.updated.$t; // nope
+    let dateAdded = songData.updated.$t; // nopes
     let dateDisplay = dateAdded.split('T')[0]; // nope
 
     let ms = songData.gsx$durationms.$t;
@@ -46,7 +46,7 @@ happy.buildSong = (songData) => {
 
 
 // to send data into Header
-happy.populateHeader = (items) => {
+happy.populateHeader = function (items) {
     let totalSongs = items.length;
 
     // pulling duration out of song obj
@@ -75,24 +75,21 @@ happy.populateHeader = (items) => {
 
 
 // on a scale of one to happy...
-happy.sortFunction = (a, b) => {
+happy.sortFunction = function (a, b) {
     const songA = a.gsx$danceability.$t;
     const songB = b.gsx$danceability.$t;
 
     let comparison = 0;
 
-    if (songA > songB) {
-        comparison = 1;
-    } else if (songA < songB) {
-        comparison = -1;
-    }
+    songA > songB ? comparison = 1 : comparison = -1;
+    
     return comparison;
 }
 
 
 
 // fetch data from url
-happy.populateList = () => {
+happy.populateList = function () {
     
     const apiCall = function () {
         fetch(happy.url)
