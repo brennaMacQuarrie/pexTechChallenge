@@ -10,24 +10,31 @@ header {
     flex-direction: column;
     justify-content: space-between;
     @include color($offWhite);
-    
-    nav {
-        height: 45px;
-        width: 80%;
+
+    // flex my life away
+    nav,
+    .arrows,
+    .signUp,
+    .signUp button,
+    .back,
+    .forward {
         display: flex;
-        background: rgba(53, 37, 38, 0.6);
+        align-items: center;
+    }
+    nav {
+        justify-content: space-between;
+        height: 45px;
+        width: 100%;
+        background: $lightRedGrey;
         padding: 7px 10px;
-   
         .back,
         .forward {
+            justify-content: center;
             height: 30px;
             width: 30px;
             border-radius: 50%;
             margin-right: 20px;
-            background: rgba(36, 25, 25, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: $redGrey;
             i {
                 color: $offWhite;
                 font-size: 3rem;
@@ -36,11 +43,33 @@ header {
                 }
             }
         }
+        // this was driving me crazy
         .back i {
             transform: translateX(-1px);
         }
         .forward i {
             transform: translateX(1px);
+        }
+
+        .signUp button {
+            justify-content: center;
+            height: 30px;
+            width: 100px;
+
+            border: none;
+            border-radius: 30px;
+
+            text-transform: uppercase;
+            @include color($offWhite);
+            font-size: 1rem; 
+            cursor: pointer;
+        }
+        button.signUpButton {
+            background: transparent;
+            color: white;
+        }
+        button.logInButton {
+            color: black;
         }
     }
 
@@ -49,9 +78,8 @@ header {
     // image and text div
     .title {
         display: flex;
-        width: 90%;
         height: 80%;
-        padding: 20px 30px;
+        padding: 20px 35px;
         img {
             max-width: 220px;
             box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4), -10px -10px 30px rgba(0, 0, 0, 0.4);
@@ -61,6 +89,9 @@ header {
         .titleText {
             align-self: flex-end;
             margin-left: 20px;
+            .play {
+                color: white;
+            }
             p {
                 padding-top: 8px;
             }

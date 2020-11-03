@@ -54,7 +54,7 @@ main {
     }
 
     .secondRow {
-        border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+        border-bottom: solid 1px $offWhite;
         text-transform: uppercase;
         padding: 10px 0;
     }
@@ -135,7 +135,7 @@ main {
         
 
 
-// placeholder
+// spaceholder
 .left {
     min-width: 250px;
 }

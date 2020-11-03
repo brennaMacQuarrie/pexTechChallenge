@@ -347,6 +347,16 @@ aside .asideFlex:hover, aside .asideFlex:active {
   cursor: pointer;
 }
 
+aside .asideFlex:hover .createBoxOne,
+aside .asideFlex:active .createBoxOne {
+  background: white;
+}
+
+aside .asideFlex:hover .createBoxTwo,
+aside .asideFlex:active .createBoxTwo {
+  background-image: linear-gradient(45deg, #08e608, rgba(253, 250, 72, 0.89));
+}
+
 aside .createBoxOne,
 aside .createBoxTwo,
 aside .group i {
@@ -406,32 +416,40 @@ header {
   font-family: 'Circular Book';
 }
 
-header nav {
-  height: 45px;
-  width: 80%;
+header nav,
+header .arrows,
+header .signUp,
+header .signUp button,
+header .back,
+header .forward {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: rgba(53, 37, 38, 0.6);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header nav {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 45px;
+  width: 100%;
+  background: rgba(37, 28, 28, 0.7);
   padding: 7px 10px;
 }
 
 header nav .back,
 header nav .forward {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 30px;
   width: 30px;
   border-radius: 50%;
   margin-right: 20px;
-  background: rgba(36, 25, 25, 0.8);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  background: rgba(12, 9, 9, 0.7);
 }
 
 header nav .back i,
@@ -455,13 +473,38 @@ header nav .forward i {
           transform: translateX(1px);
 }
 
+header nav .signUp button {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 30px;
+  width: 100px;
+  border: none;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.623);
+  letter-spacing: 1px;
+  font-family: 'Circular Book';
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+header nav button.signUpButton {
+  background: transparent;
+  color: white;
+}
+
+header nav button.logInButton {
+  color: black;
+}
+
 header .title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 90%;
   height: 80%;
-  padding: 20px 30px;
+  padding: 20px 35px;
 }
 
 header .title img {
@@ -474,6 +517,10 @@ header .title .titleText {
   -ms-flex-item-align: end;
       align-self: flex-end;
   margin-left: 20px;
+}
+
+header .title .titleText .play {
+  color: white;
 }
 
 header .title .titleText p {
@@ -561,7 +608,7 @@ main ol li {
 }
 
 main .secondRow {
-  border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+  border-bottom: solid 1px rgba(255, 255, 255, 0.623);
   text-transform: uppercase;
   padding: 10px 0;
 }

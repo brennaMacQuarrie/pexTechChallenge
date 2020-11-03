@@ -49,12 +49,11 @@ happy.buildSong = function (songData) {
 happy.populateHeader = function (items) {
     let totalSongs = items.length;
 
-    // pulling duration out of song obj
+    // pulling all durations out of song obj
     let songDurationArray = items.map((song) => {
         return song.gsx$durationms.$t;
     });
 
-    // build reduce fn
     const reducer = (a, b) => {
         return Number.parseInt(a) + Number.parseInt(b)
     };
@@ -66,7 +65,7 @@ happy.populateHeader = function (items) {
     let mins = parseInt(fullTime.split(':')[1]); 
     let hrs = parseInt(fullTime.split(':')[2]); 
 
-    let displayTime = hrs + ' hr, ' + mins + ' min';     
+    let displayTime = hrs + ' hr ' + mins + ' min';     
     
     document.getElementById('duration').textContent = displayTime;
     document.getElementById('songCount').textContent = totalSongs;
@@ -106,7 +105,7 @@ happy.populateList = function () {
 
                     items.sort(happy.sortFunction);
                     
-                    items.forEach((songData, index) => {
+                    items.forEach((songData) => {
                         let songRow = happy.buildSong(songData);
                         document.getElementById('songList').append(songRow);
                     }); 
@@ -124,7 +123,7 @@ happy.populateList = function () {
 
 
 
-
+// make for go
 
 happy.domReady = (fn) => {
     // If we're early to the party
@@ -139,7 +138,7 @@ happy.domReady = (fn) => {
     }
 }
 
-// INIT FUNCTION
+// iss ready init?
 happy.init = () => {
     happy.domReady();
 };
