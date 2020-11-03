@@ -6,7 +6,7 @@ header {
     top: 0;
     right: 0;
 
-    padding: 20px 25px;
+    padding: 10px 25px 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -18,8 +18,8 @@ header {
         display: flex;
         .back,
         .forward {
-            height: 40px;
-            width: 40px;
+            height: 35px;
+            width: 35px;
             border-radius: 50%;
             margin-right: 20px;
             background: rgba(58, 40, 40, 0.8);
@@ -45,11 +45,12 @@ header {
 
     
     // image and text div
-    // TODO responsive????
     .title {
         display: flex;
+        width: 90%;
+        height: 80%;
         img {
-            max-width: 250px;
+            max-width: 220px;
             box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4), -10px -10px 30px rgba(0, 0, 0, 0.4);
         }
 
@@ -62,10 +63,10 @@ header {
             }
             h1 {
                 font-family: 'Circular Black', sans-serif;
-                font-size: clamp(4rem, 5.5rem, 7rem);
+                font-size: clamp(6rem, 7rem, 10rem);
                 color: white;
                 line-height: 80%;
-                padding: 10px 0;
+                padding: 20px 0;
             }
             .fm {
                 color: white;

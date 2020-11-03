@@ -20,8 +20,8 @@
     // date hidden
     main {
         .secondRow,
-        ul li {
-            grid-template-columns: 0.5fr 6fr 3fr 0.3fr;
+        ol li {
+            grid-template-columns: 0.8fr 5.8fr 3fr 0.3fr;
             .date {
                 display: none;
             }
@@ -32,8 +32,14 @@
 /* Landscape phones and down */
 @media (max-width: 480px) {
     header {
-        // background-image: url(../../assets/facetime\ cfp.JPG);
-        // TODO background here make work
+        background-image: url('../../assets/facetime.JPG');
+        background-size: cover;
+        overflow: hidden;
+        nav {
+            .forward {
+                display: none;
+            }
+        }
         .title {
             position: relative;
             img {
@@ -41,8 +47,16 @@
             }
             .titleText {
                 position: absolute;
-                width: 80%;
+                width: 100%;
+                h1 ~ p {
+                    display: none;
+                }
             }
+        }
+    }
+    main {
+        .topRow {
+            margin: 20px 0;
         }
     }
 
@@ -50,6 +64,7 @@
     main {
         width: 100%;
     }
+
     aside {
         display: none;
     }

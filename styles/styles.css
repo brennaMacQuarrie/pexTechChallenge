@@ -255,7 +255,7 @@ img {
   margin: 0 auto;
 }
 
-ul {
+ol {
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -312,16 +312,14 @@ aside h2 {
   font-size: 1.3rem;
 }
 
-aside h2:hover, aside h2:active,
-aside h2:hover ~ i.fas,
-aside h2:active ~ i.fas {
-  color: white;
+aside i {
+  font-size: 2rem;
 }
 
 aside .group,
 aside .playlists {
   margin: 30px 0;
-  height: 15%;
+  height: 12%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -344,14 +342,22 @@ aside .asideFlex {
           align-items: center;
 }
 
-aside i {
-  font-size: 2rem;
+aside .asideFlex:hover, aside .asideFlex:active {
+  color: white;
+  cursor: pointer;
 }
 
 aside .createBoxOne,
 aside .createBoxTwo,
 aside .group i {
   margin-right: 15px;
+}
+
+aside .playlists {
+  height: 20%;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.3);
 }
 
 aside .createBoxOne {
@@ -376,13 +382,6 @@ aside .createBoxTwo {
   background-image: linear-gradient(45deg, #06b906, rgba(255, 221, 72, 0.89));
 }
 
-aside .playlists {
-  height: 20%;
-  width: 100%;
-  padding: 10px 0;
-  border-bottom: solid 1px rgba(255, 255, 255, 0.3);
-}
-
 header {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#69494b), to(#352526));
   background-image: linear-gradient(180deg, #69494b, #352526);
@@ -391,7 +390,7 @@ header {
   position: fixed;
   top: 0;
   right: 0;
-  padding: 20px 25px;
+  padding: 10px 25px 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -418,8 +417,8 @@ header nav {
 
 header nav .back,
 header nav .forward {
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
   margin-right: 20px;
   background: rgba(58, 40, 40, 0.8);
@@ -459,10 +458,12 @@ header .title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 90%;
+  height: 80%;
 }
 
 header .title img {
-  max-width: 250px;
+  max-width: 220px;
   -webkit-box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4), -10px -10px 30px rgba(0, 0, 0, 0.4);
           box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4), -10px -10px 30px rgba(0, 0, 0, 0.4);
 }
@@ -479,10 +480,10 @@ header .title .titleText p {
 
 header .title .titleText h1 {
   font-family: 'Circular Black', sans-serif;
-  font-size: clamp(4rem, 5.5rem, 7rem);
+  font-size: clamp(6rem, 7rem, 10rem);
   color: white;
   line-height: 80%;
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
 header .title .titleText .fm {
@@ -494,15 +495,16 @@ main {
   background-image: linear-gradient(180deg, #271c1c, black);
   height: 58vh;
   width: calc(100% - 240px);
-  overflow: scroll;
+  padding: 20px;
   position: fixed;
   bottom: 0;
   right: 0;
-  color: rgba(255, 255, 255, 0.767);
+  color: rgba(255, 255, 255, 0.623);
+  overflow: scroll;
 }
 
 main .topRow {
-  padding: 20px 0;
+  padding-bottom: 20px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -511,7 +513,6 @@ main .topRow {
       -ms-flex-align: center;
           align-items: center;
   font-size: 2.3rem;
-  color: rgba(255, 255, 255, 0.623);
 }
 
 main .topRow .far {
@@ -546,12 +547,11 @@ main .topRow:hover {
 }
 
 main .secondRow,
-main ul li {
-  width: 100%;
+main ol li {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 0.3fr 5fr 3fr 2fr 1fr;
-      grid-template-columns: 0.3fr 5fr 3fr 2fr 1fr;
+  -ms-grid-columns: 0.3fr 4.5fr 3fr 2fr 1fr;
+      grid-template-columns: 0.3fr 4.5fr 3fr 2fr 1fr;
   font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.623);
   letter-spacing: 1px;
@@ -564,36 +564,40 @@ main .secondRow {
   padding: 10px 0;
 }
 
-main ul li {
-  padding: 5px;
-  width: 100%;
+main ol {
+  padding: 20px 0;
+}
+
+main ol li {
+  padding-top: 5px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   border-radius: 3px;
-  position: relative;
   counter-increment: my-counter;
+  position: relative;
 }
 
-main ul li::before {
+main ol li::before {
   content: counter(my-counter);
   position: absolute;
 }
 
-main ul li .left {
+main ol li .left {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 5fr;
       grid-template-columns: 1fr 5fr;
-  overflow-x: hidden;
+  height: 50px;
+  overflow: hidden;
 }
 
-main ul li .left img {
+main ol li .left img {
   margin-right: 10px;
-  width: 50px;
+  width: 45px;
 }
 
-main ul li .left .titleArtist {
+main ol li .left .titleArtist {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -606,48 +610,48 @@ main ul li .left .titleArtist {
           justify-content: center;
 }
 
-main ul li .left .titleArtist .songTitle {
+main ol li .left .titleArtist .songTitle {
   color: white;
 }
 
-main ul li .left .titleArtist .songArtist:hover {
+main ol li .left .titleArtist .songArtist:hover,
+main ol li .left .titleArtist .songArtist:active {
   text-decoration: underline;
 }
 
-main ul li .clock {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+main ol li .clock {
   position: relative;
 }
 
-main ul li .clock i {
+main ol li .clock i {
   display: none;
   position: absolute;
 }
 
-main ul li .clock .fa-heart {
+main ol li .clock .fa-heart {
   left: -20px;
+  bottom: 0;
 }
 
-main ul li .clock .fa-ellipsis-h {
+main ol li .clock .fa-ellipsis-h {
   left: 35px;
+  bottom: 0;
 }
 
-main ul li:hover {
+main ol li:hover {
   background: rgba(47, 44, 44, 0.5);
 }
 
-main ul li:hover i {
+main ol li:hover i {
   display: inline-block;
 }
 
-main ul li:active {
+main ol li:active {
   background: #5E5C5C;
 }
 
-.num {
-  min-width: 10px;
+main ol li:active i {
+  display: inline-block;
 }
 
 .left {
@@ -671,18 +675,26 @@ main ul li:active {
 /* Landscape phone to portrait tablet */
 @media (max-width: 1000px) {
   main .secondRow,
-  main ul li {
-    -ms-grid-columns: 0.5fr 6fr 3fr 0.3fr;
-        grid-template-columns: 0.5fr 6fr 3fr 0.3fr;
+  main ol li {
+    -ms-grid-columns: 0.8fr 5.8fr 3fr 0.3fr;
+        grid-template-columns: 0.8fr 5.8fr 3fr 0.3fr;
   }
   main .secondRow .date,
-  main ul li .date {
+  main ol li .date {
     display: none;
   }
 }
 
 /* Landscape phones and down */
 @media (max-width: 480px) {
+  header {
+    background-image: url("../../assets/facetime.JPG");
+    background-size: cover;
+    overflow: hidden;
+  }
+  header nav .forward {
+    display: none;
+  }
   header .title {
     position: relative;
   }
@@ -691,7 +703,13 @@ main ul li:active {
   }
   header .title .titleText {
     position: absolute;
-    width: 80%;
+    width: 100%;
+  }
+  header .title .titleText h1 ~ p {
+    display: none;
+  }
+  main .topRow {
+    margin: 20px 0;
   }
   header,
   main {

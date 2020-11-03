@@ -1,17 +1,15 @@
 // NAMESPACE
 const happy = {};
 
-
 happy.url = 'https://spreadsheets.google.com/feeds/list/1H5S6Vc-gCOCKLvQmfjfJmG2THtDb5Z_LQGaZJpWZQ4c/1/public/values?alt=json';
 
 
 happy.msToHr = (ms) => {
     ms = 1000 * Math.round(ms / 1000); // round to nearest second
-
     let date = new Date(ms);
 
     date = date.toTimeString(); // convert to 'yr day hr:mn:sc'
-    date = date.split(' ')[0]; // convert to hr:mn:sc
+    date = date.split(' ')[0]; // convert to 'hr:mn:sc'
 
     return date;
 }
@@ -23,8 +21,8 @@ happy.buildSong = (songData) => {
     let songTitle = songData.gsx$songtitle.$t;
     let songArtist = songData.gsx$artist.$t;
 
-    let dateAdded = songData.updated.$t;
-    let dateDisplay = dateAdded.split('T')[0];
+    let dateAdded = songData.updated.$t; // nope
+    let dateDisplay = dateAdded.split('T')[0]; // nope
 
     let ms = songData.gsx$durationms.$t;
     let hours = happy.msToHr(ms);
@@ -32,9 +30,8 @@ happy.buildSong = (songData) => {
     let secs = hours.split(':')[2]; 
     let minTime = mins + ':' + secs;     
 
-    // display
+    // send into display
     const template = document.getElementById('songRow');
-    
     let blankLi = template.content.querySelector("li"); // li to be replicated
     let songRow = document.importNode(blankLi, true); 
     
@@ -69,11 +66,12 @@ happy.populateHeader = (items) => {
     let mins = parseInt(fullTime.split(':')[1]); 
     let hrs = parseInt(fullTime.split(':')[2]); 
 
-    let displayTime = hrs + ' hr, ' + mins + " min";     
+    let displayTime = hrs + ' hr, ' + mins + ' min';     
     
     document.getElementById('duration').textContent = displayTime;
     document.getElementById('songCount').textContent = totalSongs;
 }
+
 
 
 // on a scale of one to happy...
@@ -89,12 +87,13 @@ happy.sortFunction = (a, b) => {
         comparison = -1;
     }
     return comparison;
-
 }
+
+
 
 // fetch data from url
 happy.populateList = () => {
-    //get data from bitly json info
+    
     const apiCall = function () {
         fetch(happy.url)
             .then(function (response) {
@@ -104,7 +103,7 @@ happy.populateList = () => {
                     );
                     return;
                 }
-                // accessing data
+                // accessing data now
                 response.json().then(function (data) {
                     const items = data.feed.entry;
 
@@ -113,14 +112,12 @@ happy.populateList = () => {
                     items.forEach((songData, index) => {
                         let songRow = happy.buildSong(songData);
                         document.getElementById('songList').append(songRow);
-                        
-                        // document.getElementById(`num+${index}`).append(index);
                     }); 
                     happy.populateHeader(items);
                 }); 
             }) 
 
-            // if shit don't work
+            // if shit don't woyk
             .catch(function (err) {
                 alert('data error', err);
             });
@@ -135,22 +132,22 @@ happy.populateList = () => {
 happy.domReady = (fn) => {
     // If we're early to the party
     document.addEventListener('DOMContentLoaded', fn);
-    // If late, aka on time.
+    // If late, aka on time
     if (
         document.readyState === 'interactive' ||
         document.readyState === 'complete'
     ) {
-        // the function to rule all functions
+        // ok, nowwwwww we can do shit.
         happy.populateList();
     }
 }
 
-//INIT FUNCTION
+// INIT FUNCTION
 happy.init = () => {
     happy.domReady();
 };
 
-//DOCUMENT READY FUNCTION
+// THE FUNCTION TO RULE ALL FUNCTIONS
 document.addEventListener("DOMContentLoaded", function () {
     happy.init();
 });

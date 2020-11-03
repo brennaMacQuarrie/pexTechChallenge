@@ -3,27 +3,26 @@ main {
 
     height: 58vh;
     width: calc(100% - 240px);
-    overflow: scroll;
-
+    padding: 20px;
     position: fixed;
     bottom: 0;
     right: 0;
-
-    color: rgba(255, 255, 255, 0.767);
-
+    color: $offWhite;
+    overflow: scroll;
     // PLAY BUTTON ROW
     .topRow {
-        padding: 20px 0;
+        padding-bottom: 20px;
         width: 100%;
         display: flex;
         align-items: center;
-
         font-size: 2.3rem;
-        color: $offWhite;
 
+        // heart and ellipsis
         .far {
             padding: 0 30px;
         }
+
+        // play
         button {
             border-radius: 50%;
             height: 55px;
@@ -36,6 +35,7 @@ main {
             
             background: #1DB954;
             color: white;
+            // this was bugging me
             .fas {
                 transform: translateX(2px);
             }
@@ -45,12 +45,11 @@ main {
         }
     }
 
-    // LAYOUT ALIGNMENT
+    // main section uniform alignment
     .secondRow,
-    ul li {
-        width: 100%;
+    ol li {
         display: grid;
-        grid-template-columns: 0.3fr 5fr 3fr 2fr 1fr;
+        grid-template-columns: 0.3fr 4.5fr 3fr 2fr 1fr;
         @include color($offWhite);
     }
 
@@ -60,29 +59,32 @@ main {
         padding: 10px 0;
     }
 
-
-    ul {
+    // TEMPLATE
+    ol {
+        padding: 20px 0;
         li {
-            padding: 5px;
-            width: 100%;
+            padding-top: 5px;
             align-items: center;
             border-radius: 3px;
-            position: relative;
             counter-increment: my-counter;
+            position: relative;
             &::before {
                 content: counter(my-counter);
                 position: absolute;
             }
-            // image, title, artist grouped
+
+            // image, title/artist group
+            // TODO make font hide under next grid
             .left {
                 display: grid;
                 grid-template-columns: 1fr 5fr;
-                overflow-x: hidden;
-                // TODO make font hide under next grid
+                height: 50px;
+                overflow: hidden;
                 img {
                     margin-right: 10px;
-                    width: 50px;
+                    width: 45px;
                 }
+                // text
                 .titleArtist {
                     display: flex;
                     flex-direction: column;
@@ -90,25 +92,26 @@ main {
                     .songTitle {
                         color: white;
                     }
-                    .songArtist:hover {
+                    .songArtist:hover,
+                    .songArtist:active {
                         text-decoration: underline;
                     }
                 }
             }
 
             .clock {
-                display: flex;
                 position: relative;
-                
                 i {
                     display: none;
                     position: absolute;
                 }
                 .fa-heart {
                     left: -20px;
+                    bottom: 0;
                 }
                 .fa-ellipsis-h {
                     left: 35px;
+                    bottom: 0;
                 }
             }
             // on song hover
@@ -121,6 +124,9 @@ main {
             // on song click
             &:active {
                 background: #5E5C5C;
+                i {
+                    display: inline-block;
+                }
             }
         }
     }
@@ -128,9 +134,7 @@ main {
         
 
 
-.num {
-    min-width: 10px;
-}
+// placeholder
 .left {
     min-width: 250px;
 }
