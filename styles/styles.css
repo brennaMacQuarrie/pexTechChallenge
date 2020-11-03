@@ -271,17 +271,17 @@ a {
 
 @font-face {
   font-family: 'Circular Book';
-  src: local("Circular Book"), url(assets/CircularStd-Book.ttf) format("truetype");
+  src: local("Circular Book"), url(../../assets/CircularStd-Book.ttf) format("truetype");
 }
 
 @font-face {
   font-family: 'Circular Med';
-  src: local("Circular Med"), url(assets/CircularStd-Medium.ttf) format("truetype");
+  src: local("Circular Med"), url(../../assets/CircularStd-Medium.ttf) format("truetype");
 }
 
 @font-face {
   font-family: 'Circular Black';
-  src: local("Circular Black"), url(assets/Circular_Bold.ttf) format("truetype");
+  src: local("Circular Black"), url(../../assets/Circular_Bold.ttf) format("truetype");
 }
 
 aside {
