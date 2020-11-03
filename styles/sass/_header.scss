@@ -6,29 +6,31 @@ header {
     top: 0;
     right: 0;
 
-    padding: 10px 25px 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     @include color($offWhite);
     
     nav {
-        height: 40px;
+        height: 45px;
         width: 80%;
         display: flex;
+        background: rgba(53, 37, 38, 0.6);
+        padding: 7px 10px;
+   
         .back,
         .forward {
-            height: 35px;
-            width: 35px;
+            height: 30px;
+            width: 30px;
             border-radius: 50%;
             margin-right: 20px;
-            background: rgba(58, 40, 40, 0.8);
+            background: rgba(36, 25, 25, 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
             i {
                 color: $offWhite;
-                font-size: 3.5rem;
+                font-size: 3rem;
                 &:hover {
                     color: white;
                 }
@@ -49,6 +51,7 @@ header {
         display: flex;
         width: 90%;
         height: 80%;
+        padding: 20px 30px;
         img {
             max-width: 220px;
             box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4), -10px -10px 30px rgba(0, 0, 0, 0.4);
