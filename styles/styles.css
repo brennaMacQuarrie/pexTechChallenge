@@ -734,14 +734,19 @@ main ol li:active i {
   main .date {
     display: none;
   }
-  main ol li {
+  main ol li,
+  main .secondRow {
     -ms-grid-columns: 0.3fr 4.5fr 3fr 1fr;
         grid-template-columns: 0.3fr 4.5fr 3fr 1fr;
   }
-  main ol li .left .titleArtist .songTitle {
-    width: 250px;
+  main ol li .left .titleArtist .songTitle,
+  main ol li .left,
+  main .secondRow .left .titleArtist .songTitle,
+  main .secondRow .left {
+    width: 200px;
   }
-  main ol li .album {
+  main ol li .album,
+  main .secondRow .album {
     width: 180px;
   }
 }
