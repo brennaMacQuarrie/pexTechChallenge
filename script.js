@@ -3,7 +3,7 @@ const happy = {};
 
 happy.url = 'https://spreadsheets.google.com/feeds/list/1H5S6Vc-gCOCKLvQmfjfJmG2THtDb5Z_LQGaZJpWZQ4c/1/public/values?alt=json';
 
-happy.urlFm = 'http://ws.audioscrobbler.com/2.0/?';
+happy.urlFm = 'https://ws.audioscrobbler.com/2.0/?';
 
 
 
@@ -51,7 +51,6 @@ happy.buildSong = function (songData) {
         method: 'track.getInfo',
     })).then((res) => {
         res.json().then((body) => {
-            console.log(body.track);
             let albumTitle = body.track?.album?.title;
             let artwork = body.track?.album?.image[0];
 
