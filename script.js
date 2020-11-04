@@ -140,11 +140,15 @@ happy.populateList = function () {
 
                     items.sort(happy.sortFunction);
                     
-                    items.forEach((songData) => {
-                        let songRow = happy.buildSong(songData);
-                        document.getElementById('songList').append(songRow);
+                    let newSongs = [];
+                    items.forEach((songData, i) => {
+                        if (i < 100) {
+                            let songRow = happy.buildSong(songData);
+                            document.getElementById('songList').append(songRow);
+                            newSongs.push(songData);
+                        }
                     }); 
-                    happy.populateHeader(items);
+                    happy.populateHeader(newSongs);
                 }); 
             }) 
 

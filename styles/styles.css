@@ -599,8 +599,8 @@ main .secondRow,
 main ol li {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 0.3fr 4.5fr 3fr 2fr 1fr;
-      grid-template-columns: 0.3fr 4.5fr 3fr 2fr 1fr;
+  -ms-grid-columns: 0.3fr 4fr 3fr 2fr 1fr;
+      grid-template-columns: 0.3fr 4fr 3fr 2fr 1fr;
   text-align: left;
   font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.623);
@@ -679,7 +679,7 @@ main ol li .left .titleArtist .songArtist:active {
 }
 
 main ol li .album {
-  width: 350px;
+  width: 300px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
