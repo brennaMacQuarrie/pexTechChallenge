@@ -1,6 +1,5 @@
-// 1280
 
-/* Portrait tablet and small desktops */
+// response cues taken from actual spotify 
 @media (max-width: 1280px) {
     header {
         .title {
@@ -9,34 +8,55 @@
                 height: 200px;
                 align-self: flex-end;
             }
-
         }
     }
-
 }
-// 1025 disappear forward arrow, margin between around songlist
-/* Landscape phone to portrait tablet */
-@media (max-width: 1000px) {
-    // date hidden
+
+
+@media (max-width: 1200px) {
+    // remove "date" & reset
     main {
-        .secondRow,
+        .date {
+            display: none;
+        }
         ol li {
-            grid-template-columns: 0.8fr 5.8fr 3fr 0.3fr;
-            .date {
-                display: none;
+            grid-template-columns: 0.3fr 4.5fr 3fr 1fr;
+            .left .titleArtist .songTitle {
+                width: 250px;
+            }
+            .album {
+                width: 180px;
             }
         }
     }
 }
 
-/* Landscape phones and down */
+
+/* Landscape phones and down to mobile */
 @media (max-width: 480px) {
+    // bye felicia
+    header,
+    main {
+        width: 100%;
+    }
+    aside {
+        display: none;
+    }
+
+
     header {
-        background-image: url('../../assets/facetime.JPG');
+        // now im just getting carried away
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), black), url('../assets/facetime.JPG');
         background-size: cover;
         overflow: hidden;
+
+        // bye felicia
         nav {
+            background: transparent;
             .forward {
+                display: none;
+            }
+            .signUp {
                 display: none;
             }
         }
@@ -54,18 +74,17 @@
             }
         }
     }
+
+    // contain vw
     main {
-        .topRow {
-            margin: 20px 0;
+        ol li {
+            grid-template-columns: 0.3fr 4.5fr 3fr 1fr;
+            .left .titleArtist .songTitle  {
+                width: 120px;
+            }
+            .album {
+                width: 80px;
+            }
         }
-    }
-
-    header,
-    main {
-        width: 100%;
-    }
-
-    aside {
-        display: none;
     }
 }

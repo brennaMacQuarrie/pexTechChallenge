@@ -633,6 +633,10 @@ main ol li::before {
   position: absolute;
 }
 
+main ol li .num {
+  width: 30px;
+}
+
 main ol li .left {
   display: -ms-grid;
   display: grid;
@@ -663,7 +667,7 @@ main ol li .left .titleArtist {
 main ol li .left .titleArtist .songTitle {
   color: white;
   font-size: 1.5rem;
-  width: 200px;
+  width: 300px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -675,7 +679,7 @@ main ol li .left .titleArtist .songArtist:active {
 }
 
 main ol li .album {
-  width: 200px;
+  width: 350px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -717,7 +721,6 @@ main ol li:active i {
   display: inline-block;
 }
 
-/* Portrait tablet and small desktops */
 @media (max-width: 1280px) {
   header .title img {
     width: 200px;
@@ -727,27 +730,44 @@ main ol li:active i {
   }
 }
 
-/* Landscape phone to portrait tablet */
-@media (max-width: 1000px) {
-  main .secondRow,
-  main ol li {
-    -ms-grid-columns: 0.8fr 5.8fr 3fr 0.3fr;
-        grid-template-columns: 0.8fr 5.8fr 3fr 0.3fr;
-  }
-  main .secondRow .date,
-  main ol li .date {
+@media (max-width: 1200px) {
+  main .date {
     display: none;
+  }
+  main ol li {
+    -ms-grid-columns: 0.3fr 4.5fr 3fr 1fr;
+        grid-template-columns: 0.3fr 4.5fr 3fr 1fr;
+  }
+  main ol li .left .titleArtist .songTitle {
+    width: 250px;
+  }
+  main ol li .album {
+    width: 180px;
   }
 }
 
-/* Landscape phones and down */
+/* Landscape phones and down to mobile */
 @media (max-width: 480px) {
+  header,
+  main {
+    width: 100%;
+  }
+  aside {
+    display: none;
+  }
   header {
-    background-image: url("../../assets/facetime.JPG");
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(black)), url("../assets/facetime.JPG");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), black), url("../assets/facetime.JPG");
     background-size: cover;
     overflow: hidden;
   }
+  header nav {
+    background: transparent;
+  }
   header nav .forward {
+    display: none;
+  }
+  header nav .signUp {
     display: none;
   }
   header .title {
@@ -763,14 +783,14 @@ main ol li:active i {
   header .title .titleText h1 ~ p {
     display: none;
   }
-  main .topRow {
-    margin: 20px 0;
+  main ol li {
+    -ms-grid-columns: 0.3fr 4.5fr 3fr 1fr;
+        grid-template-columns: 0.3fr 4.5fr 3fr 1fr;
   }
-  header,
-  main {
-    width: 100%;
+  main ol li .left .titleArtist .songTitle {
+    width: 120px;
   }
-  aside {
-    display: none;
+  main ol li .album {
+    width: 80px;
   }
 }
