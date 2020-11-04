@@ -55,7 +55,7 @@ happy.buildSong = function (songData) {
             let artwork = body.track?.album?.image[0];
 
             // dealing with undefined from alt data
-            if (artwork['#text']) {
+            if (artwork) {
                 songRow.querySelector('.songImg').src = artwork['#text']; 
             } else {
                 songRow.querySelector('.songImg').src = defaultArtSrc;
